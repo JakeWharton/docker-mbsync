@@ -19,7 +19,39 @@ Select and create two directories:
 
 ### Config
 
-TODO
+In `/path/to/config`, create a file `mbsync.rc` for configuration.
+See the [`mbsync`][1] documentation for the syntax of this file.
+
+The examples in this README mount the destination `/path/to/mail` directory as `/mail` inside of the container.
+If you are going to follow that, you should use `/mail` as the path in your configuration.
+
+Here is an example, minimal configuration for synchronizing everything in a mailbox:
+```
+IMAPAccount example
+Host imap.example.com
+User me@example.com
+Pass abc123
+AuthMechs LOGIN
+SSLType IMAPS
+PipelineDepth 50
+
+IMAPStore example-remote
+Account example
+
+MaildirStore example-local
+Path /mail/
+Inbox /mail/Inbox
+SubFolders Verbatim
+
+Channel example
+Master :example-remote:
+Slave :example-local:
+Patterns *
+Create Slave
+Expunge Slave
+SyncState *
+Sync Pull
+```
 
 
 ### Initial Sync
@@ -76,7 +108,8 @@ services:
       - /path/to/mail:/mail
     environment:
       - "CRON=0 * * * *"
-      - "CHECK_URL=..." #Optional!
+      #Optional:
+      - "CHECK_URL=..."
 ```
 
 
