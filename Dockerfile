@@ -12,7 +12,9 @@ LABEL maintainer="Jake Wharton <jakewharton@gmail.com>"
 ENV CRON="" \
     CHECK_URL=""
 
-RUN apk add isync \
+RUN apk add --no-cache \
+      isync \
+      curl \
  && rm -rf /var/cache/* \
  && mkdir /var/cache/apk
 
