@@ -10,8 +10,7 @@ FROM alpine:latest
 LABEL maintainer="Jake Wharton <jakewharton@gmail.com>"
 
 ENV CRON="" \
-    CHECK_URL="" \
-    TZ=""
+    CHECK_URL=""
 
 RUN apk add isync \
  && rm -rf /var/cache/* \
