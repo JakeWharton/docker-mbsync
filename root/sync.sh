@@ -10,7 +10,7 @@ else
   echo $$ > /tmp/sync.pid
 
   echo "INFO: Starting sync!"
-  mbsync -V -c /config/mbsync.rc
+  mbsync -V -a -c /config/mbsync.rc
 
   if [ -z "$CHECK_URL" ]; then
     echo "INFO: Define CHECK_URL with https://healthchecks.io to monitor sync job"
