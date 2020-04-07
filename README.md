@@ -5,7 +5,13 @@ A Docker container which runs the [`mbsync`][1] tool automatically to synchroniz
 
  [1]: http://isync.sourceforge.net/mbsync.html
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/jakewharton/mbsync.svg)](https://hub.docker.com/r/jakewharton/mbsync/) [![](https://images.microbadger.com/badges/image/jakewharton/mbsync.svg)](https://microbadger.com/images/jakewharton/mbsync)
+[![Docker Image Version](https://img.shields.io/docker/v/jakewharton/mbsync?sort=semver)][hub]
+[![Docker Image Size](https://img.shields.io/docker/image-size/jakewharton/mbsync)][layers]
+[![Docker Image Layers](https://img.shields.io/microbadger/layers/jakewharton/mbsync)][layers]
+[![Docker Pulls](https://img.shields.io/docker/pulls/jakewharton/mbsync.svg)][hub]
+
+ [hub]: https://hub.docker.com/r/jakewharton/mbsync/
+ [layers]: https://microbadger.com/images/jakewharton/mbsync
 
 
 Setup
