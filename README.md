@@ -112,6 +112,9 @@ services:
       - "CHECK_URL=..."
 ```
 
+Note: You may want to specify an explicit version rather than `latest`.
+See https://hub.docker.com/r/jakewharton/mbsync/tags.
+
 
 
 LICENSE
