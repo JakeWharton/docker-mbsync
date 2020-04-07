@@ -15,10 +15,10 @@ Release Process
     git tag -a X.Y.Z -m 'Version X.Y.Z'
     ```
 
- 4. Push tag
+ 4. Push commit and tag
  
     ```
-    git push --tags
+    git push && git push --tags
     ``` 
     
     CI will pick it up, build, and push to Docker Hub automatically.
