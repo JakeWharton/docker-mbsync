@@ -3,14 +3,19 @@ RUN apk add --no-cache shellcheck
 
 RUN mkdir /overlay
 COPY root/ /overlay/
-RUN shellcheck /overlay/*
+RUN find /overlay -type f | xargs shellcheck -e SC1008
 
 
-FROM alpine:latest
+FROM oznu/s6-alpine:3.11
 LABEL maintainer="Jake Wharton <docker@jakewharton.com>"
 
-ENV CRON="" \
-    HEALTHCHECK_ID=""
+ENV \
+    # Fail if cont-init scripts exit with non-zero code.
+    S6_BEHAVIOUR_IF_STAGE2_FAILS=2 \
+    CRON="" \
+    HEALTHCHECK_ID="" \
+    PUID="" \
+    PGID=""
 
 RUN apk add --no-cache \
       isync \
@@ -19,6 +24,3 @@ RUN apk add --no-cache \
  && mkdir /var/cache/apk
 
 COPY root/ /
-
-ENTRYPOINT ["/entrypoint.sh"]
-CMD [""]
