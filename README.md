@@ -68,7 +68,7 @@ This allows you to temporarily interrupt it at any point and also restart if it 
 ```bash
 $ docker run -it --rm
     -v /path/to/config:/config \
-    -v /path/do/mail:/mail \
+    -v /path/to/mail:/mail \
     jakewharton/mbsync \
     /app/sync.sh
 ```
@@ -83,7 +83,7 @@ To run the sync automatically on a schedule, pass a valid cron specifier as the 
 ```bash
 $ docker run -it --rm
     -v /path/to/config:/config \
-    -v /path/do/mail:/mail \
+    -v /path/to/mail:/mail \
     -e "CRON=0 * * * *" \
     jakewharton/mbsync
 ```
