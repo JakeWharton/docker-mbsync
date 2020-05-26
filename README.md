@@ -7,8 +7,6 @@ A Docker container which runs the [`mbsync`][1] tool automatically to synchroniz
 
 [![Docker Image Version](https://img.shields.io/docker/v/jakewharton/mbsync?sort=semver)][hub]
 [![Docker Image Size](https://img.shields.io/docker/image-size/jakewharton/mbsync)][layers]
-[![Docker Image Layers](https://img.shields.io/microbadger/layers/jakewharton/mbsync)][layers]
-[![Docker Pulls](https://img.shields.io/docker/pulls/jakewharton/mbsync.svg)][hub]
 
  [hub]: https://hub.docker.com/r/jakewharton/mbsync/
  [layers]: https://microbadger.com/images/jakewharton/mbsync
@@ -71,7 +69,8 @@ This allows you to temporarily interrupt it at any point and also restart if it 
 $ docker run -it --rm
     -v /path/to/config:/config \
     -v /path/do/mail:/mail \
-    jakewharton/mbsync
+    jakewharton/mbsync \
+    /app/sync.sh
 ```
 
 This will run until all emails have been downloaded. At this point, you should set it up to run automatically on a schedule.
@@ -94,11 +93,13 @@ The above version will run every hour and download any new emails. For help crea
  [2]: https://cron.help/#0_*_*_*_*
 
 
-### Monitoring
+### More
 
 To be notified when sync is failing visit https://healthchecks.io, create a check, and specify the ID to the container using the `HEALTHCHECK_ID` environment variable.
 
 Because the sync can occasionally fail, it's best to set a grace period on the check which is a multiple of your cron period. For example, if you run sync hourly give a grace period of two hours.
+
+To write data as a particular user, the `PUID` and `PGID` environment variables can be set to your user ID and group ID, respectively.
 
 
 ### Docker Compose
@@ -116,6 +117,8 @@ services:
       - "CRON=0 * * * *"
       #Optional:
       - "HEALTHCHECK_ID=..."
+      - "PUID=..."
+      - "PGID=..."
 ```
 
 Note: You may want to specify an explicit version rather than `latest`.
@@ -129,7 +132,3 @@ LICENSE
 MIT. See `LICENSE.txt`.
 
     Copyright 2020 Jake Wharton
-
-Much of the container scripts were derived from [bcardiff/docker-rclone][3].
-
- [3]: https://github.com/bcardiff/docker-rclone
