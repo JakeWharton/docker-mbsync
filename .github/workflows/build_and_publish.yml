@@ -23,3 +23,16 @@ jobs:
         repository: jakewharton/mbsync
         tag_with_ref: true
         add_git_labels: true
+
+    - name: Extract release notes
+      id: release_notes
+      if: startsWith(github.ref, 'refs/tags/')
+      uses: ffurrer2/extract-release-notes@v1
+
+    - name: Create Release
+      if: startsWith(github.ref, 'refs/tags/')
+      uses: softprops/action-gh-release@v1
+      with:
+        body: ${{ steps.release_notes.outputs.release_notes }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
