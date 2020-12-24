@@ -1,6 +1,13 @@
 Change Log
 ==========
 
+Version 1.2.0 *(2020-12-24)*
+----------------------------
+
+ * Update base image to Alpine 3.12
+ * Upgrade to isync 1.3.3
+
+
 Version 1.1.0 *(2020-10-26)*
 ----------------------------
 

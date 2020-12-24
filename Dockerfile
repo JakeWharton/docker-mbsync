@@ -6,7 +6,7 @@ COPY root/ /overlay/
 RUN find /overlay -type f | xargs shellcheck -e SC1008
 
 
-FROM oznu/s6-alpine:3.11
+FROM oznu/s6-alpine:3.12
 LABEL maintainer="Jake Wharton <docker@jakewharton.com>"
 
 ENV \
@@ -18,9 +18,11 @@ ENV \
     PUID="" \
     PGID=""
 
-RUN apk add --no-cache \
-      isync \
-      curl \
+RUN echo @edge http://nl.alpinelinux.org/alpine/edge/community > /etc/apk/repositories \
+ && echo @edge http://nl.alpinelinux.org/alpine/edge/main >> /etc/apk/repositories \
+ && apk add --no-cache \
+      isync@edge \
+      curl@edge \
  && rm -rf /var/cache/* \
  && mkdir /var/cache/apk
 
