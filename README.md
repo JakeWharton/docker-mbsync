@@ -69,7 +69,7 @@ This allows you to temporarily interrupt it at any point and also restart if it 
 $ docker run -it --rm
     -v /path/to/config:/config \
     -v /path/to/mail:/mail \
-    jakewharton/mbsync \
+    jakewharton/mbsync:1 \
     /app/sync.sh
 ```
 
@@ -85,7 +85,7 @@ $ docker run -it --rm
     -v /path/to/config:/config \
     -v /path/to/mail:/mail \
     -e "CRON=0 * * * *" \
-    jakewharton/mbsync
+    jakewharton/mbsync:1
 ```
 
 The above version will run every hour and download any new emails. For help creating a valid cron specifier, visit [cron.help][2].
@@ -108,7 +108,7 @@ To write data as a particular user, the `PUID` and `PGID` environment variables 
 version: '2'
 services:
   mbsync:
-    image: jakewharton/mbsync:latest
+    image: jakewharton/mbsync:1
     restart: unless-stopped
     volumes:
       - /path/to/config:/config
@@ -121,8 +121,7 @@ services:
       - "PGID=..."
 ```
 
-Note: You may want to specify an explicit version rather than `latest`.
-See https://hub.docker.com/r/jakewharton/mbsync/tags.
+See https://hub.docker.com/r/jakewharton/mbsync/tags for other tags.
 
 
 
