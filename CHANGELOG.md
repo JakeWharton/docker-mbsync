@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## [1.3.0] - 2021-11-23
+
+* Update base image to Alpine 3.14
+* Upgrade to isync 1.4.3
+
 ## [1.2.0] - 2020-12-24
 
 * Update base image to Alpine 3.12
@@ -27,7 +32,8 @@
 Initial release
 
 
-[Unreleased]: https://github.com/JakeWharton/docker-mbsync/compare/1.2.0...HEAD
+[Unreleased]: https://github.com/JakeWharton/docker-mbsync/compare/1.3.0...HEAD
+[1.3.0]: https://github.com/JakeWharton/docker-mbsync/releases/tag/1.3.0
 [1.2.0]: https://github.com/JakeWharton/docker-mbsync/releases/tag/1.2.0
 [1.1.0]: https://github.com/JakeWharton/docker-mbsync/releases/tag/1.1.0
 [1.0.0]: https://github.com/JakeWharton/docker-mbsync/releases/tag/1.0.0
