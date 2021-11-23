@@ -20,11 +20,13 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+set -e
+
 PUID=${PUID:-1001}
 PGID=${PGID:-1001}
 
-groupmod -o -g "$PGID" abc
-usermod -o -u "$PUID" abc
+addgroup -g "$PGID" abc
+adduser -u "$PUID" -D -G abc abc
 
 echo "
 Initializing container

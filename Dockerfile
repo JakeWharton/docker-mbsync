@@ -6,7 +6,7 @@ COPY root/ /overlay/
 RUN find /overlay -type f | xargs shellcheck -e SC1008
 
 
-FROM oznu/s6-alpine:3.12
+FROM project42/s6-alpine:3.14
 LABEL maintainer="Jake Wharton <docker@jakewharton.com>"
 
 ENV \
