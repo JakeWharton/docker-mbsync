@@ -25,8 +25,8 @@ set -e
 PUID=${PUID:-1001}
 PGID=${PGID:-1001}
 
-addgroup -g "$PGID" abc
-adduser -u "$PUID" -D -G abc abc
+getent group abc >/dev/null || addgroup -g "$PGID" abc
+id -u abc &>/dev/null || adduser -u "$PUID" -D -G abc abc
 
 echo "
 Initializing container
