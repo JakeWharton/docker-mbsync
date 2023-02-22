@@ -3,6 +3,10 @@
 ## [Unreleased]
 
 
+## [1.4.1] - 2023-02-21
+
+* Fix: Only create user and group if they do not already exist.
+
 ## [1.4.0] - 2023-02-20
 
 * Upgrade to isync 1.4.4
@@ -37,7 +41,8 @@
 Initial release
 
 
-[Unreleased]: https://github.com/JakeWharton/docker-mbsync/compare/1.4.0...HEAD
+[Unreleased]: https://github.com/JakeWharton/docker-mbsync/compare/1.4.1...HEAD
+[1.4.1]: https://github.com/JakeWharton/docker-mbsync/releases/tag/1.4.1
 [1.4.0]: https://github.com/JakeWharton/docker-mbsync/releases/tag/1.4.0
 [1.3.0]: https://github.com/JakeWharton/docker-mbsync/releases/tag/1.3.0
 [1.2.0]: https://github.com/JakeWharton/docker-mbsync/releases/tag/1.2.0
